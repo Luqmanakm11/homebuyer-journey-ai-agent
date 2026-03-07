@@ -1,0 +1,15 @@
+# Secrets and Credentials
+.env
+
+# Python Virtual Environment
+venv/
+__pycache__/
+*.pyc
+
+# Local Databases (Optional: push them if you want judges to see mock data)
+# mock_properties.json
+# mock_transactions.json
+
+# OS specific files
+.DS_Store
+Thumbs.db

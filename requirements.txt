@@ -1,0 +1,11 @@
+streamlit
+langchain
+langchain-openai
+langgraph
+azure-ai-projects
+azure-identity
+azure-search-documents
+azure-ai-documentintelligence
+azure-storage-blob
+python-dotenv
+Faker
