@@ -1,0 +1,29 @@
+document.addEventListener("DOMContentLoaded", () => {
+    
+    const requestURI = window.location.pathname;
+    const buttons = document.querySelectorAll('.iqi-lang-button > div > div > a');
+
+    if (requestURI === '/blog/' || requestURI === '/blog') {
+		console.error("BUTTON : Translation to English Initialize..");
+		
+        buttons.forEach((button) => {
+            button.textContent = "Join IQI";
+        });
+    }
+
+    if (requestURI.includes('/blog/cn/')) {
+		console.error("BUTTON : Translation to Chinese Initialize..");
+		
+        buttons.forEach((button) => {
+            button.textContent = "加入IQI";
+        });
+    }
+
+    if (requestURI.includes('/blog/bm/')) {
+		console.error("BUTTON : Translation to Bahasa Initialize..");
+		
+        buttons.forEach((button) => {
+            button.textContent = "Sertai IQI";
+        });
+    }
+});

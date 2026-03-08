@@ -1,0 +1,14 @@
+jQuery(document).ready(function($) {
+    setTimeout(function() {
+        $('<style type="text/css">[data-testid="dialog_iframe"].fb_customer_chat_bounce_out_v2 { z-index: -1 !important; visibility: hidden !important; } [data-testid="dialog_iframe"].fb_customer_chat_bounce_in_v2 { z-index: 2147483646 !important; visibility: visible !important; }</style>').appendTo('head');
+    }, 2000);
+
+
+    $.get('https://api.ipify.org', function() {}).always(function(ip) {
+        $.get('https://www.iqiglobal.com/blog/wp-json/api/v1/geocheck/?ip=' + ip, function() {}).always(function(response) {
+            if (response.countryCode === 'au') {
+                $('#menu-item-3582').remove();
+            }
+        }); 
+    });
+});

@@ -1,0 +1,303 @@
+[data-v-ed45cbda] .el-input__inner {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  text-overflow: ellipsis;
+  color: #191823;
+  border: 1px solid #999999;
+  position: relative;
+  background: transparent;
+  padding: 20px 16px 0 16px;
+  font-size: 18px;
+}
+[data-v-ed45cbda] .small .el-input__inner {
+  font-size: 14px;
+}
+[data-v-ed45cbda] .custom-input.start .el-input__inner {
+  border-radius: 10px 0 0 10px !important;
+}
+[data-v-ed45cbda] .el-input__inner:focus {
+  outline: 2px solid #1063f1;
+  outline-offset: -1px;
+}
+.input-item[data-v-ed45cbda] {
+  width: 100%;
+  position: relative;
+}
+.input-item[data-v-ed45cbda]::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -2;
+  border-radius: 10px;
+}
+.input-item .placeholder[data-v-ed45cbda] {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #666666;
+  z-index: 9;
+  transition: all 0.1s ease-in;
+}
+.input-item .placeholder[data-v-ed45cbda]::after {
+  content: '*';
+  color: red;
+  right: -10px;
+  top: 0;
+  position: absolute;
+}
+.input-item .placeholder.optional[data-v-ed45cbda]::after {
+  display: none;
+}
+.input-item .placeholder.small[data-v-ed45cbda] {
+  font-size: 14px;
+}
+.input-item .placeholder.focus[data-v-ed45cbda] {
+  top: 20%;
+  font-size: 12px;
+}
+.input-item.start[data-v-ed45cbda]::after {
+  border-radius: 10px 0 0 10px !important;
+}
+
+.start-con[data-v-00d079fd] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+  z-index: 10;
+  max-width: 520px;
+}
+.start-con .error-tip[data-v-00d079fd] {
+  color: #f56c6c;
+  font-size: 12px;
+  line-height: 1;
+  padding-top: 4px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.start-con .error-tip .tip-icon[data-v-00d079fd] {
+  width: 14px;
+  margin-right: 4px;
+}
+.start-con .get-start[data-v-00d079fd] {
+  background: #130032;
+  color: #ffffff;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.start-con .get-start[data-v-00d079fd]:hover {
+  background: #2b095e;
+}
+.start-con .get-start.re[data-v-00d079fd] {
+  cursor: not-allowed;
+}
+
+
+[data-v-54896402] .el-form-item {
+  margin-bottom: 0;
+}
+[data-v-54896402] .countrySelect .el-input .el-input__inner {
+  width: 100%;
+  height: 52cqb;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #999999;
+  color: #191823;
+  font-size: 18px;
+  position: relative;
+}
+[data-v-54896402] .countrySelect .el-input .el-input__inner:focus {
+  outline: 2px solid #1063f1;
+  outline-offset: -1px;
+}
+[data-v-54896402] .countrySelect .el-input .el-input__inner::placeholder {
+  font-size: 16px;
+  color: #666666;
+  position: relative;
+}
+[data-v-54896402] .el-input__inner {
+  height: 52px !important;
+}
+[data-v-54896402] .phoneBox .custom-input .el-input__inner {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.free-dialog[data-v-54896402] {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.45);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.free-dialog .mask[data-v-54896402] {
+  width: 500px;
+  height: 590px;
+  border-radius: 10px;
+  background: #ffffff;
+  position: absolute;
+  z-index: -2;
+}
+.free-dialog .free-dialog-main[data-v-54896402] {
+  background: #ffffff;
+  color: #000000;
+  width: 1000px;
+  height: 590px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.free-dialog .free-dialog-main .close[data-v-54896402] {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  transition: all 0.3s ease-in-out;
+}
+.free-dialog .free-dialog-main .close[data-v-54896402]:hover {
+  transform: rotate(90deg);
+}
+.free-dialog .free-dialog-main .right-img[data-v-54896402] {
+  width: 400px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  height: 85%;
+}
+.free-dialog .free-dialog-main .left[data-v-54896402] {
+  width: 500px;
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+.free-dialog .free-dialog-main .left .title[data-v-54896402],
+.free-dialog .free-dialog-main .left .sub-title[data-v-54896402] {
+  font-family: 'PingFang SC';
+  width: 100%;
+  line-height: 40px;
+  font-size: 32px;
+  text-align: left;
+  user-select: none;
+  position: relative;
+}
+.free-dialog .free-dialog-main .left .sub-title[data-v-54896402] {
+  font-size: 18px;
+  color: #333333;
+  font-family: 'PingFang SC';
+}
+.free-dialog .free-dialog-main .left .sub-title .email-text[data-v-54896402] {
+  color: #000000;
+}
+.free-dialog .free-dialog-main .left .right-form[data-v-54896402] {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.free-dialog .free-dialog-main .left .right-form .el-form-item[data-v-54896402] {
+  flex: 1;
+}
+.free-dialog .free-dialog-main .left .right-form .agreement[data-v-54896402] {
+  margin-left: 10px;
+}
+.free-dialog .free-dialog-main .left .right-form[data-v-54896402]  .el-form-item__content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.free-dialog .free-dialog-main .left .right-form[data-v-54896402]  .el-form-item__content a {
+  text-decoration: underline;
+}
+.free-dialog .free-dialog-main .left .right-form[data-v-54896402]  .el-form-item__content .check-con {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.free-dialog .free-dialog-main .left .right-form[data-v-54896402]  .el-button--default {
+  width: 100%;
+  height: 52px;
+  border-radius: 6px;
+  align-content: center;
+  text-align: center;
+  background: #007aff;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+}
+.free-dialog .free-dialog-main .left .right-form[data-v-54896402]  .el-button--default:hover {
+  background: #0056bc;
+}
+.free-dialog .free-dialog-main .right-img[data-v-54896402] {
+  width: 400px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  height: 85%;
+}
+@media screen and (max-width: 768px) {
+.right-img[data-v-54896402] {
+    display: none;
+}
+.mask[data-v-54896402] {
+    display: none;
+}
+.free-dialog .free-dialog-main[data-v-54896402] {
+    width: 100%;
+}
+.free-dialog .free-dialog-main .left[data-v-54896402] {
+    width: 100%;
+    margin-right: 0;
+}
+.free-dialog .free-dialog-main .left .title[data-v-54896402] {
+    line-height: 36px;
+    font-size: 24px;
+}
+.free-dialog .free-dialog-main .left .sub-title[data-v-54896402] {
+    line-height: 24px;
+}
+}
+/* 过渡动画关键样式 */
+.fade-enter-active[data-v-54896402],
+.fade-leave-active[data-v-54896402] {
+  transition: opacity 0.3s ease;
+}
+.fade-enter[data-v-54896402],
+.fade-leave-to[data-v-54896402] {
+  opacity: 0;
+}
+

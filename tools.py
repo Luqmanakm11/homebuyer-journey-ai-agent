@@ -66,7 +66,6 @@ def trigger_idsaya_esignature(transaction_id: str) -> str:
         if not row:
             return "Error: Transaction ID not found."
         
-        # FIX: Changed to dictionary-style access
         if row['is_spa_signed']:
             return "The SPA is already signed."
             
@@ -107,7 +106,6 @@ def submit_lhdn_estamp(transaction_id: str) -> str:
         if not row:
             return "Error: Transaction ID not found."
         
-        # FIX: Changed from .is_spa_signed to ['is_spa_signed']
         if not row['is_spa_signed']:
             return "Error: Cannot stamp an unsigned SPA. Please sign via iDsaya first."
             
@@ -146,7 +144,6 @@ def check_construction_progress(unit_id: str) -> str:
         row = cursor.fetchone()
         
         if row:
-            # FIX: Changed from .project_name to ['project_name']
             return f"Unit {unit_id} ({row['project_name']}) is currently at {row['construction_percentage']}% completion."
         return "Error: Unit ID not found in ERP."
         
@@ -155,8 +152,9 @@ def check_construction_progress(unit_id: str) -> str:
     finally:
         if 'conn' in locals(): conn.close()
 
-        import httpx # You might need to run 'pip install httpx'
-
+# ==========================================
+# TOOL 5: Search Market Trends
+# ==========================================
 @tool
 def search_market_trends(topic: str) -> str:
     """
@@ -165,18 +163,55 @@ def search_market_trends(topic: str) -> str:
     Input should be a search query (e.g., 'Malaysia bank interest rates 2026').
     """
     try:
-        # We use a 'Search' API here. Tavily is the industry standard for LangChain.
-        # If you don't have a Tavily key, we can use a simpler 'Web Scraper' logic.
-        # For the hackathon, let's use a public 'Reader' for a specific site:
-        
         target_url = f"https://www.thestar.com.my/search/?q={topic.replace(' ', '+')}"
-        # Jina Reader turns any URL into LLM-friendly text instantly
         reader_url = f"https://r.jina.ai/{target_url}"
         
         with httpx.Client() as client:
             response = client.get(reader_url, timeout=10.0)
-            # We take the first 2000 characters so the AI doesn't get overwhelmed
             return response.text[:2000] 
             
     except Exception as e:
         return f"Could not access live web data: {str(e)}"
+
+# ==========================================
+# TOOL 6: Read iDsaya Guides
+# ==========================================
+@tool
+def get_idsaya_espa_guide() -> str:
+    """
+    Use this tool to read the official guides for iDsaya and Malaysia Government's Digital ID eSPA signing.
+    """
+    try:
+        file1 = os.path.join("project_docs", "What Is iDsaya_ Malaysia Government’s Digital ID & Guide to eSPA Signing.html")
+        file2 = os.path.join("project_docs", "iDsaya – Verified and Validated Identity Profile Services.html")
+        
+        content = ""
+        # Read the first guide
+        if os.path.exists(file1):
+            with open(file1, "r", encoding="utf-8") as f:
+                content += f.read() + "\n\n"
+        # Read the second guide
+        if os.path.exists(file2):
+            with open(file2, "r", encoding="utf-8") as f:
+                content += f.read()
+                
+        return content if content else "Error: iDsaya HTML files not found in project_docs folder."
+    except Exception as e:
+        return f"Error reading local files: {str(e)}"
+
+# ==========================================
+# TOOL 7: Read LHDN Stamping Guide
+# ==========================================
+@tool
+def get_lhdn_stamping_guide() -> str:
+    """
+    Use this tool to read the official guide on how to digitally stamp a document in Malaysia using LHDN STAMPS.
+    """
+    try:
+        file_path = os.path.join("project_docs", "How do I digitally stamp a document in Malaysia (LHDN STAMPS)_.html")
+        if os.path.exists(file_path):
+            with open(file_path, "r", encoding="utf-8") as f:
+                return f.read()
+        return "Error: LHDN STAMPS HTML file not found in project_docs folder."
+    except Exception as e:
+        return f"Error reading local file: {str(e)}"

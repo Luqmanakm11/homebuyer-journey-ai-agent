@@ -1,0 +1,58 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+  console.info('IQI Lighthouse initialize..');
+
+  /**
+   * Task : Buttons do not have an accessible name
+   */
+  let searchButtons = document.getElementsByClassName("search_submit");
+
+  for (let button of searchButtons) {
+    button.ariaLabel = "iqi-search-button";
+  }
+
+  /**
+   * Task : Links do not have a discernible name
+   */
+  const elementsKitNavLogo = document.getElementsByClassName(
+    "elementskit-nav-logo"
+  );
+  for (let elements of elementsKitNavLogo) {
+    elements.ariaLabel = "read more about this";
+  }
+
+  const socialItems = document.getElementsByClassName("social_item");
+  for (let socialItem of socialItems) {
+    socialItem.ariaLabel = "read more about this";
+  }
+
+  const skipLinkAnchor = document.getElementById("content_skip_link_anchor");
+  skipLinkAnchor.ariaLabel = "read more about this";
+
+  const footerSkipLinkAnchor = document.getElementById(
+    "footer_skip_link_anchor"
+  );
+  footerSkipLinkAnchor.ariaLabel = "read more about this";
+
+  const anchors = document.querySelectorAll('a[target="_blank"]');
+  anchors.forEach((anchor) => {
+    anchor.ariaLabel = "read more about this";
+  });
+
+  const icons = document.querySelectorAll('a[class="icons"]');
+  icons.forEach((icon) => {
+    icon.ariaLabel = "read more about this";
+  });
+
+  const areas = document.querySelectorAll('a[aria-hidden="true"]');
+  areas.forEach((areaHidden) => {
+    areaHidden.ariaHidden = false;
+  });
+
+  const tabIndexes = document.querySelectorAll(
+    'a[tabindex="0"], a[tabindex="1"]'
+  );
+  tabIndexes.forEach((tabIndex) => {
+    tabIndex.tabIndex = "0";
+  });
+});

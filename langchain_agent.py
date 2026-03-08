@@ -1,7 +1,8 @@
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
-from langchain_classic.agents import create_tool_calling_agent, AgentExecutor
+# Fixed the import here to the correct langchain package
+from langchain.agents import create_tool_calling_agent, AgentExecutor
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
@@ -12,7 +13,9 @@ from tools import (
     trigger_idsaya_esignature, 
     submit_lhdn_estamp, 
     check_construction_progress,
-    search_market_trends
+    search_market_trends,
+    get_idsaya_espa_guide,     
+    get_lhdn_stamping_guide    
 )
 
 load_dotenv()
@@ -47,17 +50,22 @@ def setup_agent():
         trigger_idsaya_esignature, 
         submit_lhdn_estamp, 
         check_construction_progress,
-        search_market_trends
+        search_market_trends,
+        get_idsaya_espa_guide,     
+        get_lhdn_stamping_guide    
     ] + file_toolkit.get_tools()
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", (
             "You are the Lead Concierge for Chin Hin Group. You have access to three data layers:\n"
             "1. INTERNAL ERP: Use for buyer-specific status and legal signatures.\n"
-            "2. PROJECT DOCS: Use to read house rules and policies from local files.\n"
+            "2. PROJECT DOCS: Use to read house rules, policies, and GovTech guides from local files.\n"
             "3. LIVE WEB: Use to check market news or bank interest rates.\n\n"
-            "Rules: Always check buyer status before legal steps. If a user asks about 'rules', "
-            "list files first to find the right document. Be professional."
+            "Rules: Always check buyer status before legal steps. If a user asks about 'rules' or 'steps', "
+            "list files first to find the right document. Be professional.\n\n"
+            "CRITICAL HTML PARSING RULE: You have access to a local file system via tools. Some files may be "
+            "raw `.html`. When you read an HTML file, completely ignore the formatting, CSS, and JavaScript tags. "
+            "Extract ONLY the human-readable text to answer the user's questions about guides like iDsaya or LHDN."
         )),
         MessagesPlaceholder(variable_name="chat_history"),
         ("human", "{input}"),
@@ -65,7 +73,8 @@ def setup_agent():
     ])
 
     agent = create_tool_calling_agent(llm, tools, prompt)
-    # Using AgentExecutor from classic
+    
+    # Using AgentExecutor to run the tools and handle parsing errors gracefully
     executor = AgentExecutor(agent=agent, tools=tools, verbose=True, handle_parsing_errors=True)
 
     return RunnableWithMessageHistory(

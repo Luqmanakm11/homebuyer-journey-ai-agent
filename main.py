@@ -111,7 +111,7 @@ if prompt := st.chat_input("How can I help you today?"):
                     f"USER MESSAGE: {prompt}"
                 )
                 
-                response = requests.post("http://127.0.0.1:8000/chat", json={"message": secure_prompt})
+                response = requests.post("https://homebuyer-journey-agent.onrender.com/chat", json={"message": secure_prompt})
                 reply = response.json().get("reply", "Technical error: No response from AI Brain.")
                 
                 st.markdown(reply)
